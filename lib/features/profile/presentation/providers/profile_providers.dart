@@ -1,0 +1,40 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../data/database_profile.dart';
+import '../../data/local_profile_repository.dart';
+import '../../domain/entities/user_profile.dart';
+import '../../domain/repositories/profile_repository.dart';
+
+final profileRepositoryProvider = Provider<ProfileRepository>(
+  (ref) => LocalProfileRepository(ProfileDatabaseHelper()),
+);
+
+/// Single source of truth for the current profile. Every screen that shows
+/// the name/avatar (home header, profile page, splash routing) watches this,
+/// so a save on one screen updates all others without manual reloads.
+final profileControllerProvider = AsyncNotifierProvider<ProfileController, UserProfile?>(
+  ProfileController.new,
+);
+
+class ProfileController extends AsyncNotifier<UserProfile?> {
+  ProfileRepository get _repository => ref.read(profileRepositoryProvider);
+
+  @override
+  Future<UserProfile?> build() async {
+    final result = await _repository.getProfile();
+    return result.when(success: (profile) => profile, failure: (f) => throw f);
+  }
+
+  /// Saves and publishes the new profile. Returns the failure message, or
+  /// `null` on success, so the calling screen can show feedback.
+  Future<String?> save(UserProfile profile) async {
+    final result = await _repository.saveProfile(profile);
+    return result.when(
+      success: (saved) {
+        state = AsyncData(saved);
+        return null;
+      },
+      failure: (f) => f.message,
+    );
+  }
+}

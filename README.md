@@ -1,16 +1,45 @@
-# primafit
+# Primafit
 
-A new Flutter project.
+*Health super-app* untuk semua kalangan generasi sehat: catatan kesehatan, skrining & rekomendasi,
+kesehatan wanita & keluarga, serta (roadmap) konsultasi dokter online, layanan instansi kesehatan, dan
+marketplace mitra.
 
-## Getting Started
+| Peran | Fungsi |
+|---|---|
+| **User** | Pasien & masyarakat umum |
+| **Dokter** | Konsultasi online (terverifikasi STR/SIP) |
+| **Instansi** | RS, klinik, PMR, organisasi kesehatan |
+| **Mitra** | Apotek, toko skincare, fashion, gym, dll. |
+| **Superadmin** | Verifikasi dokter/instansi/mitra, kelola knowledge base rekomendasi |
 
-This project is a starting point for a Flutter application.
+## Mulai cepat
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+flutter pub get
+cp env/example.json env/dev.json        # isi key; kosongkan Supabase untuk mode offline
+flutter run --dart-define-from-file=env/dev.json
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Build APK rilis:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter build apk --release --dart-define-from-file=env/dev.json
+```
+
+> Windows: bila muncul `Unable to establish loopback connection`, lihat
+> [ARCHITECTURE.md §7](docs/ARCHITECTURE.md#7-build-android-windows).
+
+## Kualitas
+
+```bash
+flutter analyze --fatal-warnings --no-fatal-infos
+flutter test
+```
+
+## Dokumentasi
+
+- [Arsitektur & konvensi](docs/ARCHITECTURE.md)
+- [Roadmap sprint](docs/ROADMAP.md)
+- [Sprint 0: fondasi & refactor](docs/sprints/SPRINT-00.md)
+- [Sprint 1: identitas & RBAC](docs/sprints/SPRINT-01.md)
+- Skema database: [`supabase/migrations`](supabase/migrations)

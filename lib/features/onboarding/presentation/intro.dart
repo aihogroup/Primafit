@@ -1,15 +1,18 @@
-import 'package:primafit/app/router/app_routes.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:primafit/core/config/env.dart';
+import 'package:primafit/features/onboarding/data/onboarding_preferences.dart';
+import 'package:primafit/features/onboarding/domain/start_route.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class IntroScreen extends StatefulWidget {
+class IntroScreen extends ConsumerStatefulWidget {
   const IntroScreen({super.key});
 
   @override
-  State<IntroScreen> createState() => _IntroScreenState();
+  ConsumerState<IntroScreen> createState() => _IntroScreenState();
 }
 
-class _IntroScreenState extends State<IntroScreen> {
+class _IntroScreenState extends ConsumerState<IntroScreen> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
@@ -53,7 +56,7 @@ class _IntroScreenState extends State<IntroScreen> {
         curve: Curves.easeInOut,
       );
     } else {
-      Navigator.pushReplacementNamed(context, AppRoutes.login);
+      _finishIntro();
     }
   }
 
@@ -63,8 +66,15 @@ class _IntroScreenState extends State<IntroScreen> {
     });
   }
 
-  void _skipIntro() {
-    Navigator.pushReplacementNamed(context, AppRoutes.login);
+  void _skipIntro() => _finishIntro();
+
+  Future<void> _finishIntro() async {
+    await ref.read(onboardingPreferencesProvider).markIntroSeen();
+    if (!mounted) return;
+    Navigator.pushReplacementNamed(
+      context,
+      routeAfterIntro(requiresAccount: Env.isSupabaseConfigured),
+    );
   }
 
   @override

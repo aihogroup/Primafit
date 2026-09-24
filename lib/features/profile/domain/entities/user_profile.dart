@@ -25,8 +25,10 @@ class UserProfile {
   final String? phone;
   final String? photoPath;
 
-  /// Onboarding is complete once the person has at least given a name.
-  bool get isComplete => name.trim().isNotEmpty;
+  /// Onboarding is complete once name, birth date and gender are known: the
+  /// health-record analyses derive age/gender-specific normal ranges from them.
+  bool get isComplete =>
+      name.trim().isNotEmpty && (birthDate?.isNotEmpty ?? false) && (gender?.isNotEmpty ?? false);
 
   factory UserProfile.fromMap(Map<String, Object?> map) => UserProfile(
     id: map['id'] as int?,

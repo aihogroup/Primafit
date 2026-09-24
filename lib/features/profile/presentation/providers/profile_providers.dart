@@ -1,17 +1,27 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../../../core/config/env.dart';
 import '../../data/database_profile.dart';
 import '../../data/local_profile_repository.dart';
+import '../../data/supabase_profile_repository.dart';
 import '../../domain/entities/user_profile.dart';
 import '../../domain/repositories/profile_repository.dart';
 
-final profileRepositoryProvider = Provider<ProfileRepository>(
-  (ref) => LocalProfileRepository(ProfileDatabaseHelper()),
-);
+/// Account-backed profile when Supabase is configured; otherwise the single
+/// on-device profile of the offline MVP.
+final profileRepositoryProvider = Provider<ProfileRepository>((ref) {
+  final local = LocalProfileRepository(ProfileDatabaseHelper());
+  if (Env.isSupabaseConfigured) {
+    return SupabaseProfileRepository(client: Supabase.instance.client, cache: local);
+  }
+  return local;
+});
 
 /// Single source of truth for the current profile. Every screen that shows
 /// the name/avatar (home header, profile page, splash routing) watches this,
 /// so a save on one screen updates all others without manual reloads.
+/// The app shell invalidates it whenever the signed-in account changes.
 final profileControllerProvider = AsyncNotifierProvider<ProfileController, UserProfile?>(
   ProfileController.new,
 );

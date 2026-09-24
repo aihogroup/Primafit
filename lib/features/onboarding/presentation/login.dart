@@ -90,9 +90,13 @@ class _LoginPageState extends ConsumerState<LoginPage>
   Future<void> _checkExistingProfile() async {
     try {
       final profile = await ref.read(profileControllerProvider.future);
-      if ((profile?.isComplete ?? false) && mounted) {
+      if (!mounted || profile == null) return;
+      if (profile.isComplete) {
         // Profile already exists, navigate to main app
         Navigator.pushReplacementNamed(context, AppRoutes.home);
+      } else if (_namaController.text.isEmpty) {
+        // Account sign-up already captured the name; only ask for the rest.
+        setState(() => _namaController.text = profile.name);
       }
     } catch (e) {
       debugPrint('Error checking profile: $e');

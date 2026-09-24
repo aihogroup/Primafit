@@ -7,4 +7,7 @@ abstract interface class ProfileRepository {
 
   /// Inserts or updates the profile and returns the stored version.
   Future<Result<UserProfile>> saveProfile(UserProfile profile);
+
+  /// Removes personal data cached on this device (called when a session ends).
+  Future<void> clearLocalCache();
 }

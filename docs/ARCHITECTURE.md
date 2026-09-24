@@ -107,7 +107,13 @@ flutter run --dart-define-from-file=env/dev.json
 - Migrasi berversi di `supabase/migrations/<timestamp>_<nama>.sql`; rollback di `supabase/rollbacks/`
   (sengaja di luar folder migrations agar tidak ikut dieksekusi).
 - Setiap tabel baru **wajib**: PK, FK + index FK, `NOT NULL`/`CHECK` yang relevan, `created_at`/`updated_at`,
-  RLS aktif + policy eksplisit, fungsi `SECURITY DEFINER` dengan `search_path = ''`.
+  RLS aktif + policy eksplisit, **grant eksplisit** (jangan andalkan default grant), fungsi
+  `SECURITY DEFINER` di schema **`private`** (tidak terekspos API) dengan `search_path = ''`.
+- Nama file migrasi = versi yang tercatat di Supabase (`list_migrations`), supaya CLI tidak
+  menganggapnya belum ter-apply.
+- Tes RLS: jalankan `supabase/tests/identity_rbac_test.sql` sebagai `postgres` (SQL Editor). Hasil
+  lulus = `ERROR: ALL n TESTS PASSED (changes rolled back)`; semua data uji di-rollback.
+- Setelah perubahan DDL, cek **Advisors** (security + performance) di dashboard.
 
 ## 7. Build Android (Windows)
 

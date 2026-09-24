@@ -33,6 +33,18 @@ class LocalProfileRepository implements ProfileRepository {
     return stored.copyWith(id: id);
   }, onError: _storageFailure('Gagal menyimpan profil.'));
 
+  /// Offline mode has no accounts, so the single device profile is the user's
+  /// own data and is kept.
+  @override
+  Future<void> clearLocalCache() async {}
+
+  /// Deletes the cached profile rows (used by the account-backed repository).
+  Future<void> deleteAll() async {
+    for (final row in await _db.getProfiles()) {
+      await _db.deleteProfile(row['id'] as int);
+    }
+  }
+
   /// image_picker returns a file in the OS cache, which Android may purge at
   /// any time. Copy it into the app documents folder so the avatar survives.
   Future<String?> _persistPhoto(String? path) async {
@@ -42,7 +54,7 @@ class LocalProfileRepository implements ProfileRepository {
     if (p.isWithin(avatarDir.path, path)) return path;
 
     final source = File(path);
-    if (!await source.exists()) return path;
+    if (!source.existsSync()) return path;
     await avatarDir.create(recursive: true);
     final target = p.join(
       avatarDir.path,

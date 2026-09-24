@@ -1,8 +1,12 @@
-import 'package:primafit/app/router/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:primafit/core/config/env.dart';
 import 'package:primafit/core/logging/app_logger.dart';
+import 'package:primafit/features/onboarding/data/onboarding_preferences.dart';
+import 'package:primafit/features/onboarding/domain/start_route.dart';
+import 'package:primafit/features/auth/domain/entities/app_session.dart';
 import 'package:primafit/features/auth/presentation/providers/auth_providers.dart';
+import 'package:primafit/features/profile/domain/entities/user_profile.dart';
 import 'package:primafit/features/profile/presentation/providers/profile_providers.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
@@ -28,19 +32,10 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
     )
 
       ..addStatusListener((status) async {
-        if (status == AnimationStatus.completed) {
-          final hasProfile = await _checkUserProfile();
-          
-          if (!hasProfile) {
-            // Navigate to profile page with editing mode on
-            if (!mounted) return;
-            Navigator.pushReplacementNamed(context, AppRoutes.intro);
-          } else {
-            // Navigate to home page as usual
-            if (!mounted) return;
-            Navigator.pushReplacementNamed(context, AppRoutes.home);
-          }
-        }
+        if (status != AnimationStatus.completed) return;
+        final route = await _resolveStartRoute();
+        if (!mounted) return;
+        Navigator.pushReplacementNamed(context, route);
       });
     _fadeIn = CurvedAnimation(
       parent: _controller,
@@ -55,19 +50,26 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
     _controller.forward();
   }
 
-  Future<bool> _checkUserProfile() async {
+  /// Resolves session, profile and onboarding state while the animation runs,
+  /// so the next (guarded) route renders immediately instead of a spinner.
+  Future<String> _resolveStartRoute() async {
+    final introSeen = await ref.read(onboardingPreferencesProvider).isIntroSeen();
+    AppSession? session;
+    UserProfile? profile;
     try {
-      // Resolve the session during the splash animation so the RoleGuard on
-      // the next (guarded) route renders immediately instead of a spinner.
-      final (_, profile) = (
-        await ref.read(sessionProvider.future),
-        await ref.read(profileControllerProvider.future),
-      );
-      return profile?.isComplete ?? false;
+      session = await ref.read(sessionProvider.future);
+      if (session != null) profile = await ref.read(profileControllerProvider.future);
     } catch (e) {
-      AppLogger.warning('Profile check failed; routing to onboarding', tag: 'splash', error: e);
-      return false;
+      // Profile unavailable (e.g. offline on first launch): a signed-in user
+      // lands on the profile form, which retries; never on the sign-in page.
+      AppLogger.warning('Start route check failed', tag: 'splash', error: e);
     }
+    return resolveStartRoute(
+      requiresAccount: Env.isSupabaseConfigured,
+      session: session,
+      profile: profile,
+      introSeen: introSeen,
+    );
   }
 
   @override

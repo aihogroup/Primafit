@@ -5,7 +5,12 @@ import 'package:primafit/features/auth/domain/entities/user_role.dart';
 
 void main() {
   test('dbValue set matches the Postgres app_role enum in the migration', () {
-    final sql = File('supabase/migrations/20260924000100_identity_rbac.sql').readAsStringSync();
+    final sql = Directory('supabase/migrations')
+        .listSync()
+        .whereType<File>()
+        .where((f) => f.path.endsWith('.sql'))
+        .map((f) => f.readAsStringSync())
+        .join('\n');
     final match = RegExp(r'create type public\.app_role as enum \(([^)]*)\)').firstMatch(sql);
     expect(match, isNotNull, reason: 'app_role enum not found in migration');
 

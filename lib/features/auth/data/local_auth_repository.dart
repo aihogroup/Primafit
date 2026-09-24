@@ -12,11 +12,14 @@ class LocalAuthRepository implements AuthRepository {
   Stream<AppSession?> watchSession() => Stream.value(AppSession.local());
 
   @override
+  Stream<void> watchPasswordRecovery() => const Stream.empty();
+
+  @override
   Future<Result<void>> signInWithEmail({required String email, required String password}) async =>
       const Result.failure(_unavailable);
 
   @override
-  Future<Result<void>> signUpWithEmail({
+  Future<Result<SignUpStatus>> signUpWithEmail({
     required String email,
     required String password,
     required String fullName,
@@ -24,6 +27,10 @@ class LocalAuthRepository implements AuthRepository {
 
   @override
   Future<Result<void>> sendPasswordReset(String email) async => const Result.failure(_unavailable);
+
+  @override
+  Future<Result<void>> updatePassword(String newPassword) async =>
+      const Result.failure(_unavailable);
 
   @override
   Future<Result<void>> signOut() async => const Result.success(null);

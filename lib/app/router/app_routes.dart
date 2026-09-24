@@ -6,7 +6,16 @@ abstract final class AppRoutes {
   // Public (no session required)
   static const splash = '/';
   static const intro = '/intro';
-  static const login = '/login';
+
+  // Account (Supabase Auth)
+  static const signIn = '/masuk';
+  static const signUp = '/daftar';
+  static const forgotPassword = '/lupa-kata-sandi';
+  static const updatePassword = '/ubah-kata-sandi';
+
+  /// Profile completion form (name, birth date, gender, ...). Kept at the
+  /// historical '/login' path for compatibility; it is not a sign-in screen.
+  static const profileSetup = '/login';
 
   // Shell / bottom navigation
   static const home = '/home';

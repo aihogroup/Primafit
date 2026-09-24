@@ -55,6 +55,10 @@ import '../../features/women_health/presentation/testpack/menu_testpack.dart';
 
 import '../../core/widgets/state_views.dart';
 import '../../features/auth/domain/entities/user_role.dart';
+import '../../features/auth/presentation/pages/forgot_password_page.dart';
+import '../../features/auth/presentation/pages/sign_in_page.dart';
+import '../../features/auth/presentation/pages/sign_up_page.dart';
+import '../../features/auth/presentation/pages/update_password_page.dart';
 import '../../features/auth/presentation/widgets/role_guard.dart';
 import 'app_routes.dart';
 
@@ -70,7 +74,13 @@ abstract final class AppRouter {
     // Public
     AppRoutes.splash: (builder: (_) => const SplashScreen(), roles: null),
     AppRoutes.intro: (builder: (_) => const IntroScreen(), roles: null),
-    AppRoutes.login: (builder: (_) => const LoginPage(), roles: null),
+    AppRoutes.profileSetup: (builder: (_) => const LoginPage(), roles: null),
+
+    // Account (Supabase Auth)
+    AppRoutes.signIn: (builder: (_) => const SignInPage(), roles: null),
+    AppRoutes.signUp: (builder: (_) => const SignUpPage(), roles: null),
+    AppRoutes.forgotPassword: (builder: (_) => const ForgotPasswordPage(), roles: null),
+    AppRoutes.updatePassword: (builder: (_) => const UpdatePasswordPage(), roles: _anyUser),
 
     // Shell
     AppRoutes.home: (builder: (_) => const HomePage(), roles: _anyUser),

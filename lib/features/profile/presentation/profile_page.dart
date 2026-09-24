@@ -10,6 +10,8 @@ import 'package:primafit/features/health_record/presentation/guladarah/read_gula
 import 'package:primafit/features/health_record/presentation/kolesterol/read_kolesterol.dart';
 import 'package:primafit/features/health_record/presentation/tensi/read_tensi.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:primafit/core/config/env.dart';
+import 'package:primafit/features/auth/presentation/widgets/account_section.dart';
 import 'package:primafit/features/profile/domain/entities/user_profile.dart';
 import 'package:primafit/features/profile/presentation/providers/profile_providers.dart';
 import 'package:intl/intl.dart';
@@ -253,6 +255,7 @@ Widget build(BuildContext context) {
                   children: [
                     _buildHeader(),
                     _isEditing ? _buildEditForm() : _buildProfileDetails(),
+                    if (!_isEditing && Env.isSupabaseConfigured) const AccountSection(),
                   ],
                 ),
               ),

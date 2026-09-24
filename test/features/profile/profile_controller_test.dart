@@ -11,8 +11,13 @@ class _FakeProfileRepository implements ProfileRepository {
   Failure? saveFailure;
   int saves = 0;
 
+  bool cacheCleared = false;
+
   @override
   Future<Result<UserProfile?>> getProfile() async => Result.success(stored);
+
+  @override
+  Future<void> clearLocalCache() async => cacheCleared = true;
 
   @override
   Future<Result<UserProfile>> saveProfile(UserProfile profile) async {
@@ -43,7 +48,7 @@ void main() {
 
     final error = await container
         .read(profileControllerProvider.notifier)
-        .save(const UserProfile(name: 'Ghazi', gender: 'Laki-laki'));
+        .save(const UserProfile(name: 'Ghazi', gender: 'Laki-laki', birthDate: '17-08-2000'));
 
     expect(error, isNull);
     final state = container.read(profileControllerProvider).value;
@@ -63,6 +68,19 @@ void main() {
 
     expect(error, 'Gagal menyimpan profil.');
     expect(container.read(profileControllerProvider).value?.name, 'Lama');
+  });
+
+  test('profile is complete only with name, birth date and gender', () {
+    expect(const UserProfile(name: 'Ghazi').isComplete, isFalse);
+    expect(const UserProfile(name: 'Ghazi', gender: 'Laki-laki').isComplete, isFalse);
+    expect(
+      const UserProfile(name: 'Ghazi', gender: 'Laki-laki', birthDate: '17-08-2000').isComplete,
+      isTrue,
+    );
+    expect(
+      const UserProfile(name: ' ', gender: 'Laki-laki', birthDate: '17-08-2000').isComplete,
+      isFalse,
+    );
   });
 
   test('UserProfile keeps the legacy SQLite column names', () {

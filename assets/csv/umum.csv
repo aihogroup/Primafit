@@ -1,0 +1,22 @@
+Penyakit,hidung_tersumbat,batuk_kering,batuk_berdahak,demam,sakit_kepala,sakit_kepala_berdenyut,diare,perih_ulu_hati,panas_dada,nyeri_punggung,alergi,ruam_alergi,sulit_nafas,asma_malam,asma_olahraga,nyeri_kencing,sering_kencing,ruam_cacar,ruam_gatal,mata_merah,tekanan_darah,sakit_kepala_belakang,lemas,pusing,cemas,gejala_stres,haus_berlebihan,lapar_berlebihan,penurunan_bb
+Anemia,Tidak,Tidak,Tidak,Kadang,Ya,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Kadang,Tidak,Kadang,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Ya,Ya,Kadang,Tidak,Tidak,Tidak,Kadang
+Asma,Kadang,Ya,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Ya,Kadang,Ya,Ya,Ya,Tidak,Tidak,Tidak,Tidak,Kadang,Tidak,Tidak,Kadang,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak
+Asam lambung naik / Maag,Tidak,Tidak,Tidak,Tidak,Kadang,Tidak,Tidak,Ya,Ya,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Kadang,Tidak,Kadang,Ya,Tidak,Tidak,Kadang
+Batuk pilek,Ya,Ya,Ya,Kadang,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Ya,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Kadang,Tidak,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak
+Cacar air,Kadang,Tidak,Tidak,Ya,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Ya,Ya,Tidak,Tidak,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Kadang
+Demam berdarah dengue (DBD),Tidak,Tidak,Tidak,Ya,Ya,Kadang,Tidak,Tidak,Tidak,Ya,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak,Ya,Kadang,Tidak,Tidak,Tidak,Tidak,Ya
+Demam tifoid (tipes),Tidak,Tidak,Tidak,Ya,Ya,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Ya,Kadang,Tidak,Tidak,Tidak,Tidak,Ya
+Diare / Radang usus (gastroenteritis),Tidak,Tidak,Tidak,Kadang,Kadang,Tidak,Ya,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Ya,Kadang,Tidak,Tidak,Tidak,Tidak,Kadang
+Diabetes tipe 2 ringan,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Ya,Tidak,Tidak,Tidak,Kadang,Tidak,Kadang,Kadang,Tidak,Tidak,Ya,Ya,Ya
+Gagal ginjal ringan,Tidak,Tidak,Tidak,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak,Ya,Tidak,Tidak,Kadang,Tidak,Tidak,Kadang,Ya,Tidak,Tidak,Tidak,Ya,Kadang,Ya,Kadang,Tidak,Tidak,Tidak,Tidak,Kadang
+Hepatitis A,Tidak,Tidak,Tidak,Ya,Ya,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Kadang,Tidak,Tidak,Ya,Kadang,Kadang,Tidak,Tidak,Tidak,Ya
+Hipertensi,Tidak,Tidak,Tidak,Tidak,Ya,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Ya,Ya,Kadang,Ya,Kadang,Kadang,Tidak,Tidak,Tidak
+Hipotensi,Tidak,Tidak,Tidak,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Ya,Ya,Kadang,Tidak,Tidak,Tidak,Tidak
+Infeksi saluran kemih (ISK),Tidak,Tidak,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Ya,Tidak,Tidak,Tidak,Tidak,Tidak,Ya,Ya,Tidak,Tidak,Tidak,Tidak,Tidak,Kadang,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak
+Infeksi saluran pernapasan atas,Ya,Ya,Ya,Ya,Kadang,Tidak,Tidak,Tidak,Kadang,Tidak,Kadang,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Kadang,Tidak,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak
+Influenza,Ya,Ya,Kadang,Ya,Ya,Tidak,Kadang,Tidak,Tidak,Ya,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Ya,Kadang,Tidak,Tidak,Tidak,Tidak,Kadang
+Migrain / Sakit kepala berat,Kadang,Tidak,Tidak,Kadang,Ya,Ya,Tidak,Tidak,Tidak,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Kadang,Kadang,Kadang,Kadang,Kadang,Ya,Ya,Tidak,Tidak,Tidak
+Pneumonia ringan (infeksi paru-paru),Kadang,Ya,Ya,Ya,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Ya,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Ya,Kadang,Tidak,Tidak,Tidak,Tidak,Kadang
+Sinusitis akut,Ya,Kadang,Ya,Kadang,Ya,Kadang,Tidak,Tidak,Tidak,Tidak,Ya,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Kadang,Tidak,Kadang,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak
+Stres,Kadang,Tidak,Tidak,Tidak,Ya,Kadang,Kadang,Kadang,Tidak,Ya,Tidak,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Kadang,Ya,Ya,Kadang,Ya,Ya,Tidak,Kadang,Kadang
+Vertigo,Tidak,Tidak,Tidak,Tidak,Ya,Kadang,Tidak,Tidak,Tidak,Kadang,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Tidak,Kadang,Kadang,Kadang,Ya,Kadang,Kadang,Tidak,Tidak,Tidak

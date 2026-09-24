@@ -1,0 +1,71 @@
+Penyakit,nyeri_perut,kembung,mual,muntah,diare,konstipasi,perubahan_bab,feses_berdarah,nyeri_bab,penurunan_nafsu_makan,penurunan_bb,heartburn,regurgitasi,sulit_menelan,nyeri_menelan,rasa_pahit_mulut,kenyang_cepat,kentut_berlebihan,kulit_kuning,gatal_tubuh,urin_gelap,feses_pucat,demam,gejala_anemia,perut_berdebar
+Gastroesophageal Reflux Disease (GERD),kadang,kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,kadang,tidak,ya,ya,kadang,kadang,ya,kadang,kadang,tidak,tidak,tidak,tidak,tidak,kadang,kadang
+Esofagitis (radang esofagus),kadang,tidak,kadang,kadang,tidak,tidak,tidak,kadang,tidak,kadang,kadang,ya,kadang,ya,ya,kadang,tidak,tidak,tidak,tidak,tidak,tidak,kadang,kadang,tidak
+Akalasia,kadang,kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,ya,ya,kadang,ya,ya,kadang,kadang,ya,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak
+Varises esofagus,kadang,tidak,kadang,ya,tidak,tidak,kadang,ya,tidak,kadang,kadang,tidak,tidak,kadang,kadang,tidak,tidak,tidak,kadang,tidak,kadang,tidak,tidak,ya,tidak
+Striktur esofagus,tidak,kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,kadang,kadang,kadang,ya,ya,kadang,tidak,ya,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak
+Barrett's esophagus,kadang,kadang,kadang,kadang,tidak,tidak,tidak,kadang,tidak,kadang,kadang,ya,ya,kadang,kadang,ya,tidak,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak
+Kanker esofagus,kadang,kadang,kadang,kadang,tidak,tidak,tidak,kadang,tidak,ya,ya,kadang,ya,ya,ya,kadang,ya,tidak,tidak,tidak,tidak,tidak,kadang,ya,tidak
+Esofagus ruptur (Boerhaave syndrome),ya,ya,ya,ya,tidak,tidak,tidak,kadang,tidak,ya,tidak,ya,kadang,ya,ya,kadang,tidak,tidak,tidak,tidak,tidak,tidak,ya,kadang,tidak
+Divertikulum Zenker,tidak,kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,kadang,kadang,kadang,ya,ya,kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak
+Esofagospasme difus,kadang,kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,kadang,kadang,ya,kadang,ya,ya,kadang,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak
+Gastritis akut,ya,ya,ya,kadang,kadang,tidak,kadang,kadang,tidak,ya,tidak,kadang,kadang,tidak,tidak,kadang,ya,kadang,tidak,tidak,tidak,tidak,kadang,kadang,kadang
+Gastritis kronis,ya,ya,ya,kadang,kadang,kadang,kadang,kadang,tidak,ya,kadang,kadang,kadang,tidak,tidak,kadang,ya,kadang,tidak,tidak,tidak,tidak,tidak,ya,kadang
+Ulkus gaster (tukak lambung),ya,kadang,ya,kadang,tidak,tidak,kadang,ya,tidak,ya,kadang,kadang,kadang,tidak,tidak,kadang,ya,tidak,tidak,tidak,tidak,tidak,tidak,ya,kadang
+Ulkus duodenum,ya,kadang,kadang,kadang,tidak,tidak,kadang,kadang,tidak,kadang,kadang,kadang,kadang,tidak,tidak,kadang,kadang,tidak,tidak,tidak,tidak,tidak,tidak,kadang,kadang
+Gastroparesis,ya,ya,ya,ya,kadang,kadang,ya,tidak,tidak,ya,ya,kadang,ya,kadang,tidak,kadang,ya,kadang,tidak,tidak,tidak,tidak,tidak,kadang,ya
+Dispepsia fungsional,ya,ya,ya,kadang,kadang,kadang,kadang,tidak,tidak,kadang,kadang,kadang,kadang,tidak,tidak,kadang,ya,ya,tidak,tidak,tidak,tidak,tidak,tidak,ya
+Kanker lambung,ya,ya,ya,kadang,kadang,kadang,kadang,ya,tidak,ya,ya,kadang,kadang,kadang,kadang,kadang,ya,tidak,tidak,tidak,tidak,tidak,kadang,ya,kadang
+Polip lambung,kadang,kadang,kadang,kadang,tidak,tidak,tidak,kadang,tidak,kadang,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak
+Perforasi lambung,ya,ya,ya,ya,kadang,kadang,ya,kadang,kadang,ya,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,tidak,tidak,tidak,tidak,ya,kadang,kadang
+Sindrom Zollinger-Ellison,ya,kadang,ya,kadang,ya,tidak,ya,kadang,tidak,kadang,ya,ya,kadang,kadang,kadang,ya,kadang,kadang,tidak,tidak,tidak,tidak,kadang,kadang,kadang
+Irritable Bowel Syndrome (IBS),ya,ya,kadang,kadang,ya,ya,ya,tidak,kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,kadang,ya,tidak,tidak,tidak,tidak,tidak,tidak,ya
+Inflammatory Bowel Disease (IBD),ya,ya,kadang,kadang,ya,kadang,ya,ya,kadang,ya,ya,tidak,tidak,tidak,tidak,tidak,kadang,ya,tidak,tidak,tidak,kadang,ya,ya,ya
+Penyakit Crohn,ya,ya,kadang,kadang,ya,kadang,ya,ya,kadang,ya,ya,tidak,tidak,kadang,kadang,tidak,kadang,ya,tidak,tidak,tidak,tidak,ya,ya,kadang
+Kolitis ulseratif,ya,ya,kadang,kadang,ya,kadang,ya,ya,kadang,ya,ya,tidak,tidak,tidak,tidak,tidak,kadang,ya,tidak,tidak,tidak,tidak,ya,ya,ya
+Gastroenteritis,ya,ya,ya,ya,ya,tidak,ya,kadang,kadang,ya,kadang,tidak,tidak,tidak,tidak,tidak,kadang,kadang,tidak,tidak,tidak,tidak,ya,kadang,ya
+"Infeksi usus (oleh bakteri, virus, parasit)",virus,parasit),ya,ya,ya,ya,ya,tidak,ya,kadang,kadang,ya,kadang,tidak,tidak,tidak,tidak,tidak,kadang,kadang,tidak,tidak,tidak,tidak,ya
+SIBO (Small Intestinal Bacterial Overgrowth),ya,ya,kadang,kadang,ya,kadang,ya,tidak,tidak,kadang,kadang,tidak,tidak,tidak,tidak,tidak,kadang,ya,tidak,tidak,tidak,tidak,kadang,kadang,ya
+Intoleransi laktosa,kadang,ya,kadang,kadang,ya,tidak,ya,tidak,tidak,kadang,tidak,tidak,tidak,tidak,tidak,tidak,kadang,ya,tidak,tidak,tidak,tidak,tidak,tidak,ya
+Penyakit Celiac,kadang,ya,kadang,kadang,ya,kadang,ya,tidak,tidak,ya,ya,tidak,tidak,tidak,tidak,tidak,ya,ya,tidak,kadang,tidak,kadang,tidak,ya,ya
+Malabsorpsi,kadang,ya,kadang,kadang,ya,kadang,ya,tidak,tidak,kadang,ya,tidak,tidak,tidak,tidak,tidak,ya,ya,tidak,tidak,tidak,kadang,tidak,ya,ya
+Obstruksi usus,ya,ya,ya,ya,tidak,ya,ya,kadang,tidak,ya,kadang,tidak,ya,tidak,tidak,tidak,ya,ya,tidak,tidak,tidak,tidak,kadang,kadang,ya
+Hernia abdomen,ya,ya,kadang,kadang,tidak,kadang,kadang,tidak,tidak,kadang,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak
+Divertikulitis,ya,kadang,kadang,kadang,kadang,kadang,ya,kadang,kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak,tidak,tidak,tidak,ya,kadang,kadang
+Divertikulosis,kadang,kadang,tidak,tidak,kadang,kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak,tidak,tidak,tidak,tidak,kadang,kadang
+Kolitis iskemik,ya,kadang,kadang,kadang,ya,tidak,ya,ya,kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak,tidak,tidak,tidak,kadang,kadang,kadang
+Megakolon toksik,ya,ya,ya,ya,ya,tidak,ya,ya,ya,ya,ya,tidak,tidak,tidak,tidak,tidak,tidak,ya,tidak,tidak,tidak,tidak,ya,ya,ya
+Polip usus,kadang,tidak,tidak,tidak,kadang,kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak
+Kanker kolorektal,kadang,kadang,kadang,kadang,kadang,kadang,ya,ya,kadang,kadang,ya,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak,tidak,tidak,kadang,kadang,ya,kadang
+Volvulus,ya,ya,ya,ya,tidak,ya,ya,kadang,kadang,ya,kadang,tidak,ya,tidak,tidak,tidak,tidak,kadang,tidak,tidak,tidak,tidak,kadang,kadang,ya
+Invaginasi usus,ya,ya,ya,ya,kadang,tidak,ya,kadang,kadang,ya,kadang,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,kadang,kadang,ya
+Appendisitis (radang usus buntu),ya,kadang,ya,kadang,kadang,tidak,kadang,tidak,kadang,ya,tidak,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak,tidak,tidak,tidak,ya,tidak,kadang
+Fistula enterik,ya,kadang,kadang,kadang,ya,tidak,ya,kadang,ya,kadang,kadang,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak,tidak,tidak,tidak,kadang,kadang,kadang
+Hepatitis A,ya,kadang,ya,kadang,kadang,tidak,kadang,tidak,tidak,ya,kadang,tidak,tidak,tidak,tidak,tidak,tidak,tidak,ya,ya,ya,ya,ya,kadang,tidak
+Hepatitis B,ya,kadang,ya,kadang,kadang,tidak,kadang,tidak,tidak,ya,kadang,tidak,tidak,tidak,tidak,tidak,tidak,tidak,ya,ya,ya,ya,kadang,kadang,tidak
+Hepatitis C,kadang,kadang,kadang,kadang,tidak,tidak,kadang,tidak,tidak,kadang,kadang,tidak,tidak,tidak,tidak,tidak,kadang,tidak,kadang,kadang,kadang,kadang,kadang,kadang,tidak
+Hepatitis alkoholik,ya,ya,ya,kadang,tidak,tidak,kadang,tidak,tidak,ya,ya,tidak,tidak,tidak,tidak,tidak,kadang,tidak,ya,ya,ya,ya,ya,kadang,tidak
+Hepatitis autoimun,kadang,kadang,kadang,kadang,tidak,tidak,kadang,tidak,tidak,kadang,kadang,tidak,tidak,tidak,tidak,tidak,kadang,tidak,kadang,kadang,kadang,kadang,kadang,kadang,tidak
+Sirosis hati,kadang,ya,kadang,kadang,tidak,tidak,kadang,kadang,tidak,ya,ya,tidak,tidak,tidak,tidak,tidak,ya,tidak,ya,ya,ya,ya,kadang,ya,tidak
+Fatty liver disease (NAFLD),kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak
+Steatohepatitis non-alkoholik (NASH),kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,tidak,kadang,kadang,tidak,tidak,tidak,tidak,tidak,tidak,tidak,kadang,kadang,kadang,kadang,tidak,kadang,tidak
+Hemokromatosis,kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,tidak,kadang,kadang,tidak,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak,kadang,tidak,tidak,kadang,tidak
+Wilson's disease,kadang,kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,kadang,kadang,tidak,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak,kadang,tidak,tidak,kadang,tidak
+Kanker hati (hepatoseluler karsinoma),ya,ya,kadang,kadang,tidak,tidak,tidak,tidak,tidak,ya,ya,tidak,tidak,tidak,tidak,tidak,ya,tidak,ya,tidak,ya,kadang,kadang,ya,tidak
+Abses hati,ya,ya,ya,kadang,tidak,tidak,tidak,tidak,tidak,ya,kadang,tidak,tidak,tidak,tidak,tidak,kadang,tidak,kadang,tidak,kadang,tidak,ya,kadang,tidak
+Sindrom Budd-Chiari,ya,ya,kadang,kadang,tidak,tidak,tidak,tidak,tidak,kadang,kadang,tidak,tidak,tidak,tidak,tidak,kadang,tidak,kadang,tidak,kadang,tidak,kadang,kadang,tidak
+Kolelitiasis (batu empedu),ya,kadang,ya,kadang,tidak,tidak,tidak,tidak,tidak,kadang,tidak,tidak,tidak,tidak,tidak,kadang,tidak,tidak,kadang,kadang,kadang,kadang,kadang,tidak,tidak
+Kolesistitis (radang kandung empedu),ya,ya,ya,kadang,tidak,tidak,tidak,tidak,tidak,ya,tidak,tidak,tidak,tidak,tidak,kadang,kadang,tidak,kadang,tidak,kadang,kadang,ya,tidak,tidak
+Kolangitis (radang saluran empedu),ya,ya,ya,kadang,kadang,tidak,kadang,tidak,tidak,ya,kadang,tidak,tidak,tidak,tidak,tidak,kadang,tidak,ya,kadang,ya,kadang,ya,kadang,tidak
+Koledokolitiasis (batu di saluran empedu),ya,kadang,ya,kadang,tidak,tidak,tidak,tidak,tidak,kadang,tidak,tidak,tidak,tidak,tidak,kadang,tidak,tidak,ya,kadang,ya,ya,kadang,tidak,tidak
+Kanker kandung empedu,ya,kadang,ya,kadang,tidak,tidak,kadang,tidak,tidak,ya,ya,tidak,tidak,tidak,tidak,kadang,kadang,tidak,ya,kadang,ya,kadang,kadang,kadang,tidak
+Primary biliary cholangitis,kadang,kadang,kadang,tidak,tidak,tidak,kadang,tidak,tidak,kadang,kadang,tidak,tidak,tidak,tidak,tidak,kadang,tidak,kadang,ya,kadang,kadang,tidak,kadang,tidak
+Primary sclerosing cholangitis,kadang,kadang,kadang,kadang,kadang,tidak,kadang,tidak,tidak,kadang,kadang,tidak,tidak,tidak,tidak,tidak,kadang,tidak,kadang,ya,kadang,kadang,kadang,kadang,tidak
+Atresia bilier (biasanya pada bayi),kadang,kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,ya,ya,tidak,tidak,tidak,tidak,tidak,tidak,tidak,ya,tidak,ya,ya,kadang,kadang,tidak
+Pankreatitis akut,ya,ya,ya,ya,kadang,tidak,kadang,tidak,tidak,ya,tidak,kadang,tidak,tidak,tidak,tidak,ya,tidak,kadang,tidak,kadang,kadang,ya,kadang,tidak
+Pankreatitis kronis,ya,ya,ya,kadang,kadang,tidak,kadang,tidak,tidak,ya,ya,kadang,tidak,tidak,tidak,tidak,ya,kadang,kadang,tidak,kadang,kadang,kadang,kadang,kadang
+Kanker pankreas,ya,ya,ya,kadang,kadang,tidak,kadang,tidak,tidak,ya,ya,tidak,tidak,tidak,tidak,tidak,ya,tidak,ya,kadang,ya,ya,kadang,ya,tidak
+Kista pankreas,kadang,kadang,kadang,kadang,tidak,tidak,tidak,tidak,tidak,kadang,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak
+Insufisiensi pankreas eksokrin,kadang,kadang,kadang,kadang,ya,tidak,ya,tidak,tidak,ya,ya,tidak,tidak,tidak,tidak,tidak,kadang,ya,tidak,tidak,tidak,ya,tidak,kadang,kadang
+Hemoroid (wasir),tidak,tidak,tidak,tidak,tidak,kadang,ya,ya,ya,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,kadang,tidak
+Fisura ani,tidak,tidak,tidak,tidak,tidak,kadang,kadang,ya,ya,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak,tidak

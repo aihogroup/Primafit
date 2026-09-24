@@ -1,0 +1,76 @@
+name: primafit
+description: "Project Akhir Ghazi 3122500056"
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+version: 1.0.0
+
+environment:
+  sdk: ^3.7.0
+
+# Jalankan `flutter pub upgrade --major-versions`. untuk upgrade versi dependencies terbaru
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  shared_preferences: ^2.5.2
+  google_fonts: ^6.2.1
+  sqflite: ^2.4.2
+  path: ^1.9.1
+  intl: ^0.20.2
+  flutter_datetime_picker: ^1.5.1
+  image_picker: ^1.1.2
+  cached_network_image: ^3.4.1
+  html: ^0.15.5+1
+  fl_chart: ^0.71.0
+  file_picker: ^10.1.2
+  flutter_html: ^3.0.0
+  share_plus: ^10.1.4
+  google_maps_flutter: ^2.12.1
+  geolocator: ^14.0.0
+  url_launcher: ^6.3.1
+  permission_handler: ^12.0.0+1
+  flutter_svg: ^2.1.0
+  csv: ^6.0.0
+  pdf: ^3.11.3
+  string_similarity: ^2.1.1
+  webview_flutter: ^4.11.0
+  flutter_local_notifications: ^18.0.0
+  timezone: ^0.10.0
+  rxdart: ^0.28.0
+  flutter_timezone: ^4.1.0
+  # flutter_native_timezone: ^2.0.0
+  android_alarm_manager_plus: ^4.0.7
+  flutter_staggered_animations: ^1.1.1
+  flutter_colorpicker: ^1.1.0
+  device_info_plus: ^11.4.0
+  table_calendar: ^3.2.0
+  percent_indicator: ^4.2.5
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.14.3
+  flutter_native_splash: ^2.4.5
+
+flutter_native_splash:
+  background_image: "assets/Splash/background.png"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/icon.png"
+  flutter_lints: ^5.0.0 #analysis_options.yaml
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/icon/
+    - assets/Intro/
+    - assets/Splash/
+    - assets/Navigation/
+    - assets/avatar/
+    - assets/fitur/
+    - assets/csv/

@@ -1,0 +1,71 @@
+Penyakit,batuk,batuk_berdahak,dahak_kuning,dahak_hijau,batuk_berdarah,batuk_kronis,sesak_nafas,sesak_saat_istirahat,sesak_saat_berbaring,nyeri_dada,nyeri_pleuritik,bunyi_nafas,bunyi_mengi,bunyi_ronchi,penurunan_bb_drastis,demam,demam_pola,keringat_malam,kelelahan_berkepanjangan,sianosis
+Pneumonia,ya,ya,ya,kadang,kadang,tidak,ya,kadang,tidak,ya,ya,kadang,tidak,kadang,kadang,ya,tidak,kadang,ya,kadang
+Tuberkulosis (TBC),ya,ya,kadang,kadang,ya,ya,ya,kadang,kadang,ya,ya,kadang,tidak,kadang,ya,ya,ya,ya,ya,kadang
+Asma,ya,kadang,kadang,tidak,tidak,kadang,ya,kadang,ya,ya,kadang,ya,ya,tidak,tidak,kadang,tidak,tidak,kadang,kadang
+Bronkitis akut,ya,ya,ya,ya,tidak,tidak,kadang,tidak,tidak,kadang,kadang,kadang,kadang,kadang,tidak,kadang,tidak,tidak,kadang,tidak
+Bronkitis kronis,ya,ya,ya,ya,kadang,ya,ya,kadang,kadang,kadang,kadang,ya,kadang,ya,kadang,kadang,tidak,tidak,ya,kadang
+Penyakit Paru Obstruktif Kronis (PPOK / COPD),ya,ya,kadang,kadang,kadang,ya,ya,ya,kadang,kadang,kadang,ya,ya,ya,ya,kadang,tidak,tidak,ya,ya
+Emfisema paru,ya,kadang,kadang,kadang,kadang,ya,ya,ya,kadang,kadang,kadang,kadang,kadang,kadang,ya,tidak,tidak,tidak,ya,ya
+Fibrosis paru idiopatik,ya,tidak,tidak,tidak,kadang,ya,ya,ya,ya,kadang,kadang,ya,tidak,kadang,ya,tidak,tidak,tidak,ya,ya
+Sarkoidosis paru,ya,tidak,tidak,tidak,kadang,ya,ya,kadang,kadang,ya,kadang,kadang,kadang,kadang,ya,kadang,tidak,kadang,ya,kadang
+Edema paru,ya,ya,tidak,tidak,kadang,tidak,ya,ya,ya,ya,ya,ya,kadang,ya,tidak,kadang,tidak,tidak,ya,ya
+Emboli paru,ya,kadang,tidak,tidak,kadang,tidak,ya,ya,kadang,ya,ya,kadang,kadang,kadang,tidak,kadang,tidak,tidak,ya,ya
+Infeksi saluran pernapasan bawah,ya,ya,ya,kadang,tidak,tidak,ya,kadang,kadang,kadang,kadang,kadang,kadang,kadang,tidak,ya,tidak,tidak,ya,kadang
+COVID-19,ya,kadang,kadang,kadang,kadang,tidak,ya,kadang,kadang,ya,kadang,kadang,kadang,kadang,kadang,ya,tidak,tidak,ya,kadang
+ARDS (Acute Respiratory Distress Syndrome),ya,kadang,kadang,kadang,kadang,tidak,ya,ya,ya,ya,ya,ya,kadang,ya,kadang,ya,tidak,tidak,ya,ya
+Kanker paru-paru,ya,kadang,kadang,kadang,ya,ya,ya,kadang,kadang,ya,kadang,kadang,kadang,kadang,ya,kadang,kadang,kadang,ya,kadang
+Pneumotoraks,kadang,tidak,tidak,tidak,kadang,tidak,ya,ya,ya,ya,ya,kadang,tidak,tidak,tidak,kadang,tidak,tidak,ya,kadang
+Atelektasis,ya,kadang,kadang,kadang,kadang,tidak,ya,ya,kadang,kadang,kadang,ya,kadang,kadang,tidak,kadang,tidak,tidak,ya,kadang
+Silikosis,ya,kadang,kadang,kadang,kadang,ya,ya,kadang,kadang,kadang,kadang,kadang,kadang,kadang,ya,kadang,tidak,tidak,ya,kadang
+Asbestosis,ya,kadang,kadang,kadang,kadang,ya,ya,ya,ya,ya,kadang,kadang,kadang,kadang,kadang,kadang,tidak,tidak,ya,kadang
+Pneumokoniosis,ya,ya,kadang,kadang,kadang,ya,ya,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,tidak,tidak,ya,kadang
+Paru-paru hitam (black lung disease),ya,ya,kadang,kadang,kadang,ya,ya,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,tidak,tidak,ya,kadang
+Bronkiektasis,ya,ya,ya,ya,kadang,ya,ya,kadang,kadang,kadang,kadang,ya,kadang,ya,kadang,kadang,tidak,tidak,kadang,kadang
+Pleuritis,kadang,tidak,tidak,tidak,tidak,tidak,ya,kadang,kadang,ya,ya,tidak,tidak,tidak,tidak,kadang,tidak,tidak,kadang,tidak
+Efusi pleura,ya,kadang,kadang,kadang,tidak,tidak,ya,ya,ya,ya,ya,kadang,tidak,tidak,kadang,kadang,tidak,tidak,ya,kadang
+Hipertensi pulmonal,kadang,kadang,tidak,tidak,kadang,kadang,ya,ya,ya,ya,kadang,kadang,kadang,kadang,kadang,tidak,tidak,tidak,ya,ya
+Paru-paru basah,ya,ya,tidak,tidak,kadang,tidak,ya,ya,ya,ya,ya,ya,kadang,ya,tidak,kadang,tidak,tidak,ya,ya
+Hantavirus pulmonary syndrome,ya,kadang,kadang,kadang,kadang,tidak,ya,ya,ya,ya,ya,ya,kadang,kadang,kadang,ya,tidak,ya,ya,ya
+Histoplasmosis,ya,kadang,kadang,kadang,kadang,kadang,ya,kadang,kadang,ya,kadang,kadang,kadang,kadang,ya,ya,tidak,kadang,ya,kadang
+Aspergilosis paru,ya,ya,kadang,kadang,ya,kadang,ya,kadang,kadang,ya,kadang,kadang,kadang,kadang,ya,ya,kadang,kadang,ya,kadang
+Kandidiasis paru,ya,ya,ya,kadang,kadang,kadang,ya,kadang,kadang,ya,kadang,kadang,kadang,kadang,ya,ya,tidak,kadang,ya,kadang
+Legionellosis,ya,kadang,kadang,kadang,kadang,tidak,ya,kadang,kadang,ya,kadang,kadang,kadang,kadang,kadang,ya,tidak,kadang,ya,kadang
+Mycoplasma pneumonia,ya,kadang,kadang,tidak,tidak,tidak,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,ya,tidak,tidak,ya,tidak
+Bronkiolitis,ya,kadang,kadang,kadang,tidak,tidak,ya,ya,ya,kadang,kadang,ya,ya,kadang,tidak,ya,tidak,tidak,kadang,kadang
+Cystic fibrosis,ya,ya,ya,ya,kadang,ya,ya,kadang,kadang,kadang,kadang,ya,ya,ya,ya,kadang,tidak,tidak,ya,kadang
+Pulmonary alveolar proteinosis,ya,kadang,kadang,kadang,kadang,kadang,ya,ya,kadang,kadang,kadang,kadang,kadang,kadang,ya,kadang,tidak,tidak,ya,kadang
+Pulmonary sequestration,ya,ya,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,tidak,kadang,tidak,tidak,kadang,tidak
+Lymphangioleiomyomatosis (LAM),ya,kadang,kadang,kadang,ya,kadang,ya,kadang,kadang,ya,kadang,kadang,kadang,kadang,kadang,kadang,tidak,tidak,ya,kadang
+Hypersensitivity pneumonitis,ya,kadang,kadang,kadang,tidak,kadang,ya,kadang,kadang,kadang,kadang,ya,ya,kadang,kadang,ya,kadang,kadang,ya,kadang
+Pneumonia aspirasi,ya,ya,ya,kadang,kadang,tidak,ya,kadang,ya,kadang,kadang,ya,kadang,ya,tidak,ya,tidak,tidak,ya,kadang
+Pneumonia nosokomial,ya,ya,ya,ya,kadang,tidak,ya,kadang,kadang,ya,ya,kadang,kadang,kadang,kadang,ya,tidak,kadang,ya,kadang
+Pneumonia komunitas,ya,ya,ya,kadang,kadang,tidak,ya,kadang,kadang,ya,ya,kadang,kadang,kadang,kadang,ya,tidak,kadang,ya,kadang
+Pneumonia atipikal,ya,kadang,kadang,kadang,tidak,tidak,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,ya,tidak,tidak,ya,kadang
+Pneumonia eosinofilik,ya,kadang,kadang,kadang,kadang,kadang,ya,kadang,kadang,kadang,kadang,kadang,kadang,kadang,ya,ya,tidak,ya,ya,kadang
+Pneumonia interstisial,ya,kadang,kadang,kadang,kadang,ya,ya,ya,ya,kadang,kadang,kadang,kadang,kadang,ya,kadang,tidak,kadang,ya,kadang
+Granulomatosis dengan poliangiitis,ya,kadang,kadang,kadang,ya,kadang,ya,kadang,kadang,ya,kadang,kadang,kadang,kadang,ya,ya,kadang,kadang,ya,kadang
+Tuberkulosis milier,ya,kadang,kadang,kadang,kadang,ya,ya,ya,kadang,kadang,kadang,kadang,kadang,kadang,ya,ya,ya,ya,ya,kadang
+Tuberkuloma,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,tidak,tidak,kadang,kadang,kadang,kadang,kadang,tidak
+Tuberkulosis kelenjar mediastinum,ya,kadang,kadang,kadang,kadang,ya,kadang,kadang,kadang,kadang,kadang,kadang,kadang,kadang,ya,ya,ya,ya,ya,tidak
+MDR-TB (Multi-drug resistant TB),ya,ya,kadang,kadang,ya,ya,ya,ya,kadang,ya,ya,kadang,kadang,kadang,ya,ya,ya,ya,ya,kadang
+XDR-TB (Extensively drug-resistant TB),ya,ya,kadang,kadang,ya,ya,ya,ya,ya,ya,ya,kadang,kadang,kadang,ya,ya,ya,ya,ya,ya
+Cryptogenic organizing pneumonia,ya,kadang,kadang,kadang,tidak,ya,ya,ya,kadang,kadang,kadang,kadang,kadang,kadang,ya,ya,tidak,kadang,ya,kadang
+Lipoid pneumonia,ya,ya,kadang,kadang,kadang,kadang,ya,kadang,kadang,ya,kadang,kadang,kadang,kadang,kadang,kadang,tidak,tidak,kadang,kadang
+Bronchiolitis obliterans,ya,kadang,kadang,kadang,tidak,ya,ya,ya,ya,kadang,kadang,ya,ya,kadang,kadang,kadang,tidak,tidak,ya,kadang
+Pulmonary veno-occlusive disease (PVOD),kadang,kadang,tidak,tidak,kadang,kadang,ya,ya,ya,ya,kadang,kadang,kadang,kadang,kadang,tidak,tidak,tidak,ya,ya
+Pulmonary capillary hemangiomatosis,kadang,kadang,tidak,tidak,ya,kadang,ya,ya,ya,kadang,kadang,kadang,kadang,kadang,kadang,kadang,tidak,tidak,ya,ya
+Goodpasture syndrome,ya,kadang,kadang,kadang,ya,tidak,ya,ya,ya,kadang,kadang,ya,kadang,kadang,kadang,ya,tidak,kadang,ya,kadang
+Wegener’s granulomatosis,ya,kadang,kadang,kadang,ya,kadang,ya,kadang,kadang,ya,kadang,kadang,kadang,kadang,ya,ya,kadang,kadang,ya,kadang
+Churg-Strauss syndrome (EGPA),ya,kadang,kadang,kadang,kadang,kadang,ya,kadang,kadang,kadang,kadang,ya,ya,kadang,ya,ya,kadang,kadang,ya,kadang
+Pneumonia interstitial nonspesifik,ya,kadang,kadang,kadang,kadang,ya,ya,ya,ya,kadang,kadang,kadang,kadang,kadang,ya,kadang,tidak,kadang,ya,kadang
+Acute interstitial pneumonia,ya,kadang,kadang,kadang,kadang,tidak,ya,ya,ya,kadang,kadang,ya,kadang,kadang,kadang,ya,tidak,kadang,ya,ya
+Sarcoidosis stadium lanjut,ya,kadang,kadang,kadang,ya,ya,ya,ya,ya,ya,kadang,ya,kadang,kadang,ya,kadang,kadang,kadang,ya,ya
+Amyloidosis paru,ya,kadang,kadang,kadang,ya,ya,ya,ya,ya,kadang,kadang,kadang,kadang,kadang,ya,kadang,tidak,tidak,ya,kadang
+Pulmonary lymphangiomatosis,ya,tidak,tidak,tidak,kadang,kadang,ya,kadang,kadang,ya,kadang,kadang,kadang,kadang,kadang,kadang,tidak,tidak,ya,kadang
+Tumor karsinoid paru,ya,kadang,kadang,kadang,ya,ya,kadang,kadang,kadang,kadang,kadang,ya,ya,kadang,kadang,kadang,tidak,tidak,kadang,tidak
+Mesotelioma pleura,ya,kadang,kadang,kadang,tidak,ya,ya,ya,ya,ya,ya,kadang,kadang,kadang,ya,kadang,tidak,kadang,ya,kadang
+Infark paru,ya,kadang,tidak,tidak,ya,tidak,ya,ya,kadang,ya,ya,kadang,kadang,kadang,tidak,kadang,tidak,tidak,ya,kadang
+Tuberkulosis pleura,ya,kadang,kadang,kadang,kadang,kadang,ya,kadang,kadang,ya,ya,kadang,tidak,tidak,ya,ya,kadang,ya,ya,tidak
+Idiopathic pulmonary hemosiderosis,ya,kadang,kadang,kadang,ya,ya,ya,ya,ya,kadang,kadang,kadang,kadang,kadang,ya,kadang,tidak,tidak,ya,ya
+Recurrent respiratory papillomatosis,ya,kadang,kadang,kadang,kadang,ya,kadang,kadang,kadang,kadang,kadang,ya,ya,kadang,tidak,tidak,tidak,tidak,kadang,tidak
+Alveolitis alergika ekstrinsik,ya,kadang,kadang,kadang,tidak,kadang,ya,kadang,kadang,kadang,kadang,kadang,ya,kadang,kadang,ya,tidak,tidak,ya,kadang

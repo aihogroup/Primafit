@@ -15,6 +15,14 @@ sealed class Result<T> {
     Err<T>() => null,
   };
 
+  /// Value on success; throws the [Failure] otherwise. Meant for
+  /// FutureProviders, where the thrown failure becomes `AsyncValue.error` and
+  /// is rendered by the standard error views.
+  T getOrThrow() => switch (this) {
+    Success<T>(:final value) => value,
+    Err<T>(failure: final f) => throw f,
+  };
+
   R when<R>({required R Function(T value) success, required R Function(Failure failure) failure}) =>
       switch (this) {
         Success<T>(:final value) => success(value),

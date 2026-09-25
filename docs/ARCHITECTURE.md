@@ -115,6 +115,17 @@ flutter run --dart-define-from-file=env/dev.json
   lulus = `ERROR: ALL n TESTS PASSED (changes rolled back)`; semua data uji di-rollback.
 - Setelah perubahan DDL, cek **Advisors** (security + performance) di dashboard.
 
+## 6b. Data di perangkat & sinkronisasi
+
+- **Wajib:** semua database SQLite dibuka lewat `LocalDb.open()` (`core/database/local_db.dart`),
+  jangan `openDatabase` langsung. File otomatis berada di folder akun aktif
+  (`databases/accounts/<user_id>/`); getter helper memeriksa `_database?.isOpen`.
+- Pemilik database diatur oleh app shell (`PrimafitApp`) dari sesi login. Saat logout, cache profil
+  dihapus dulu, baru database dilepas.
+- Tabel yang disinkronkan mendapat kolom `sync_id`/`updated_at`/`dirty` + trigger
+  (`health_record/data/sync/sync_schema.dart`). Menambah tabel baru ke sync: buat spesifikasi seperti
+  `healthMetricSpecs`, tabel server + RPC ber-LWW, lalu tes SQL + tes engine dengan server palsu.
+
 ## 7. Build Android (Windows)
 
 Nama user Windows yang mengandung spasi/titik membuat JDK gagal membuat Unix-domain socket

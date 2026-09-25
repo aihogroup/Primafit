@@ -1,0 +1,3 @@
+-- Rollback for 20260924142210_verification_resubmission.sql:
+-- re-run the private.guard_verification() definition from
+-- supabase/migrations/20260924130326_identity_rbac.sql (create or replace).

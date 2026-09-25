@@ -1,5 +1,6 @@
 -- =============================================================================
--- RLS / RBAC integration test for migrations 20260924130326 + 20260924130402.
+-- RLS / RBAC integration test for migrations 20260924130326, 20260924130402,
+-- 20260924142210 (verification resubmission), 20260924142354 (note rules).
 --
 -- Run it as `postgres` (SQL editor, psql, or MCP execute_sql). Everything runs
 -- in ONE transaction that always ends in an exception, so no test data is ever
@@ -189,6 +190,17 @@ begin
   if txt <> 'approved' then raise exception 'FAIL T19: bio edit changed status to %', txt; end if;
   passed := passed + 1;
 
+  -- T34: suspending needs a NEW note; the old approval note is not enough
+  perform set_config('request.jwt.claims',
+    json_build_object('sub', u_admin, 'role', 'authenticated')::text, true);
+  begin
+    update public.doctor_profiles set verification_status = 'suspended' where user_id = u_doctor;
+    raise exception 'FAIL T34: suspended with the stale approval note';
+  exception when check_violation then passed := passed + 1;
+  end;
+  perform set_config('request.jwt.claims',
+    json_build_object('sub', u_doctor, 'role', 'authenticated')::text, true);
+
   -- T20: credential edits send it back to review and revoke the role
   update public.doctor_profiles set str_number = 'STR-002' where user_id = u_doctor;
   select verification_status::text into txt from public.doctor_profiles where user_id = u_doctor;
@@ -196,6 +208,46 @@ begin
   if txt <> 'pending' or n <> 0 then
     raise exception 'FAIL T20: credential edit left status=% doctor_roles=%', txt, n;
   end if;
+  passed := passed + 1;
+
+  -- --------------------------------------------- rejection & resubmission
+  perform set_config('request.jwt.claims',
+    json_build_object('sub', u_admin, 'role', 'authenticated')::text, true);
+
+  -- T30: rejecting without a note is refused
+  begin
+    update public.doctor_profiles set verification_status = 'rejected' where user_id = u_doctor;
+    raise exception 'FAIL T30: rejected without a note';
+  exception when check_violation then passed := passed + 1;
+  end;
+
+  -- T31: rejection with a note is visible to the applicant
+  update public.doctor_profiles
+    set verification_status = 'rejected', verification_note = 'Scan STR tidak terbaca'
+    where user_id = u_doctor;
+  perform set_config('request.jwt.claims',
+    json_build_object('sub', u_doctor, 'role', 'authenticated')::text, true);
+  select verification_note into txt from public.doctor_profiles where user_id = u_doctor;
+  if txt is distinct from 'Scan STR tidak terbaca' then
+    raise exception 'FAIL T31: applicant sees note %', txt;
+  end if;
+  passed := passed + 1;
+
+  -- T32: editing a rejected registration resubmits it (pending, note cleared)
+  update public.doctor_profiles set sip_number = 'SIP-123' where user_id = u_doctor;
+  select verification_status::text || '|' || coalesce(verification_note, '<null>') into txt
+    from public.doctor_profiles where user_id = u_doctor;
+  if txt <> 'pending|<null>' then raise exception 'FAIL T32: resubmission left %', txt; end if;
+  passed := passed + 1;
+
+  -- T33: rejection and resubmission are both in the audit trail
+  perform set_config('request.jwt.claims',
+    json_build_object('sub', u_admin, 'role', 'authenticated')::text, true);
+  select count(*) into n from public.audit_logs
+    where entity_id = u_doctor::text
+      and ((action = 'verification.rejected' and payload ->> 'note' = 'Scan STR tidak terbaca')
+        or (action = 'verification.pending' and (payload ->> 'by_owner')::boolean));
+  if n < 2 then raise exception 'FAIL T33: audit trail has % matching rows', n; end if;
   passed := passed + 1;
 
   -- ------------------------------------------ institution (owner_id subject)

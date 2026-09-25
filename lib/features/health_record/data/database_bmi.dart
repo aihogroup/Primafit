@@ -1,3 +1,4 @@
+import 'package:primafit/core/database/local_db.dart';
 import 'package:flutter/foundation.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
@@ -53,7 +54,7 @@ class IndeksMassaTubuhDatabaseHelper {
   IndeksMassaTubuhDatabaseHelper._init();
 
   Future<Database> get database async {
-    if (_database != null) return _database!;
+    if (_database?.isOpen ?? false) return _database!;
     _database = await _initDB('indeksmassatubuh.db');
     return _database!;
   }
@@ -62,7 +63,7 @@ class IndeksMassaTubuhDatabaseHelper {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
 
-    return await openDatabase(
+    return await LocalDb.open(
       path,
       version: 1,
       onCreate: _createDB,

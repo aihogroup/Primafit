@@ -34,4 +34,30 @@ void main() {
     expect(Validators.fullName('a' * 121), isNotNull);
     expect(Validators.fullName('Budi Santoso'), isNull);
   });
+
+  test('registration numbers (STR/SIP/license)', () {
+    String? str(String v) => Validators.registrationNumber(v, field: 'Nomor STR');
+    expect(str(''), 'Nomor STR wajib diisi');
+    expect(str('123'), 'Nomor STR terlalu pendek');
+    expect(str('STR 123 456'), contains('hanya boleh'));
+    expect(str('3171/STR-2026.01'), isNull);
+    expect(Validators.registrationNumber('', field: 'SIP', required: false), isNull);
+  });
+
+  test('NIB is exactly 13 digits', () {
+    expect(Validators.nib(''), isNotNull);
+    expect(Validators.nib('123456789012'), isNotNull);
+    expect(Validators.nib('12345678901234'), isNotNull);
+    expect(Validators.nib('1234567890123'), isNull);
+  });
+
+  test('optional phone, email and rupiah', () {
+    expect(Validators.optionalPhone(''), isNull);
+    expect(Validators.optionalPhone('0812-3456-7890'), isNull);
+    expect(Validators.optionalPhone('12345'), isNotNull);
+    expect(Validators.optionalEmail(''), isNull);
+    expect(Validators.optionalEmail('bukan-email'), isNotNull);
+    expect(Validators.rupiah('75000'), isNull);
+    expect(Validators.rupiah('-5'), isNotNull);
+  });
 }

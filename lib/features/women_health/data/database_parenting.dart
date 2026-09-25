@@ -1,3 +1,4 @@
+import 'package:primafit/core/database/local_db.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:io';
 import 'package:sqflite/sqflite.dart';
@@ -14,7 +15,7 @@ class DatabaseParenting {
   static Database? _database;
 
   Future<Database> get database async {
-    if (_database != null) return _database!;
+    if (_database?.isOpen ?? false) return _database!;
     _database = await _initDatabase();
     return _database!;
   }
@@ -22,7 +23,7 @@ class DatabaseParenting {
   Future<Database> _initDatabase() async {
     final Directory documentsDirectory = await getApplicationDocumentsDirectory();
     final String path = join(documentsDirectory.path, _databaseName);
-    return await openDatabase(
+    return await LocalDb.open(
       path,
       version: _databaseVersion,
       onCreate: _onCreate,

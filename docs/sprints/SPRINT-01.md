@@ -12,21 +12,22 @@ aktif. Pengguna MVP lama tidak kehilangan data.
 
 | ID | User story | SP | Status |
 |---|---|---|---|
-| S1-01 | Project Supabase dengan migrasi berversi | 2 | ✅ project `Primafit`; 2 migrasi ter-apply |
-| S1-02 | Skema identitas & RBAC + RLS + storage bucket | 5 | ✅ ter-apply, 29/29 tes RLS lulus, security advisor bersih |
+| S1-01 | Project Supabase dengan migrasi berversi | 2 | ✅ project `Primafit`; 4 migrasi ter-apply |
+| S1-02 | Skema identitas & RBAC + RLS + storage bucket | 5 | ✅ 34/34 tes RLS lulus, security advisor bersih |
 | S1-03 | Domain & data layer auth (`UserRole`, `AppSession`, `AuthRepository`) | 3 | ✅ |
 | S1-04 | Daftar dengan email + kata sandi dan verifikasi email | 5 | ✅ kode + test · ⏳ uji di perangkat |
 | S1-05 | Masuk, keluar, dan reset kata sandi | 3 | ✅ kode + test · ⏳ uji di perangkat, perlu Redirect URL |
 | S1-06 | Profil lokal MVP dipindah ke akun saat pertama login | 3 | ✅ kode + test · ⏳ uji di perangkat |
-| S1-07 | Dokter mengajukan verifikasi (STR, SIP, spesialisasi, dokumen) | 5 | 🔜 backend siap (tabel, trigger, bucket) |
-| S1-08 | Instansi/mitra mendaftarkan organisasi | 3 | 🔜 backend siap |
-| S1-09 | Superadmin: antrean verifikasi, approve/reject + catatan | 5 | 🔜 backend siap (`verification_note`, audit log) |
-| S1-10 | Role switcher untuk pengguna multi-peran | 2 | 🔜 domain siap (`AppSession.switchRole`) |
+| S1-07 | Dokter mengajukan verifikasi (STR, SIP, spesialisasi, dokumen) | 5 | ✅ kode + test · ⏳ uji di perangkat |
+| S1-08 | Instansi/mitra mendaftarkan organisasi | 3 | ✅ kode + test · ⏳ uji di perangkat |
+| S1-09 | Superadmin: antrean verifikasi, approve/reject + catatan | 5 | ✅ kode + test · ⏳ uji di perangkat |
+| S1-10 | Role switcher untuk pengguna multi-peran | 2 | ✅ kode + test · ⏳ uji di perangkat |
 
 ## Yang sudah jalan
 
 ### Database (Supabase)
-- Migrasi `supabase/migrations/20260924130326_identity_rbac.sql` dan `20260924130402_storage_buckets.sql`
+- 4 migrasi di `supabase/migrations/` (identity_rbac, storage_buckets, verification_resubmission,
+  verification_note_rules)
   (versi file = versi di Supabase). Rollback di `supabase/rollbacks/`.
 - Fungsi `SECURITY DEFINER` ada di schema `private`, jadi tidak bisa dipanggil lewat API. Grant eksplisit
   (least privilege), termasuk grant UPDATE per kolom di `profiles`.
@@ -39,7 +40,11 @@ aktif. Pengguna MVP lama tidak kehilangan data.
   - Semua perubahan status tercatat di `audit_logs`.
 - Bucket privat `avatars` (2 MB, gambar) dan `verification-docs` (5 MB, PDF/JPG/PNG). Path file:
   `<bucket>/<user_id>/...`.
-- Tes integrasi: `supabase/tests/identity_rbac_test.sql` (29 skenario, selalu di-rollback).
+- Pengajuan yang ditolak: pemilik mengubah data → otomatis kembali `pending` (kirim ulang); catatan
+  lama tetap tersimpan di `audit_logs`.
+- Tolak/tangguhkan **wajib** disertai catatan baru (catatan persetujuan lama tidak bisa dipakai ulang).
+- Tes integrasi: `supabase/tests/identity_rbac_test.sql` (34 skenario, selalu di-rollback). Tes T30
+  sempat menemukan bug "catatan basi" yang lalu diperbaiki di migrasi `20260924142354`.
 
 ### Aplikasi
 | Alur | Perilaku |
@@ -51,6 +56,11 @@ aktif. Pengguna MVP lama tidak kehilangan data.
 | Profil | `public.profiles` = sumber kebenaran; SQLite lokal = cache write-through (8 layar catatan kesehatan masih membacanya) |
 | Migrasi MVP (S1-06) | Profil lokal lama tanpa pemilik digabung ke akun saat login pertama; data akun selalu menang; cache milik akun lain tidak pernah digabung |
 | Mode offline | Tanpa key Supabase di `env/*.json`, aplikasi berjalan seperti MVP (profil lokal, tanpa login) |
+| Bergabung sebagai profesional | Profil → "Bergabung sebagai profesional": daftar Dokter (STR, SIP, spesialisasi, tarif), Instansi (izin operasional, alamat), atau Mitra (NIB 13 digit, kategori). Status + catatan peninjau tampil di setiap pengajuan |
+| Dokumen pendukung | Unggah PDF/JPG/PNG ≤ 5 MB ke bucket privat; dibuka lewat tautan bertanda tangan (10 menit); tidak bisa dihapus setelah disetujui |
+| Antrean verifikasi (superadmin) | Tab Dokter/Instansi/Mitra × filter status; detail pemohon + dokumen; Setujui / Tolak / Tangguhkan / Aktifkan kembali dengan konfirmasi |
+| Dasbor per peran | Superadmin: jumlah antrean. Dokter: profil praktik. Instansi/Mitra: data terverifikasi. Modul operasional ditandai "segera hadir" sesuai roadmap |
+| Beralih peran | Akun dengan >1 peran memilih peran aktif (tersimpan per akun); peran yang dicabut otomatis diabaikan |
 
 ## ⚠️ Pengaturan dashboard yang wajib dilakukan pemilik project
 
@@ -85,8 +95,8 @@ on conflict do nothing;
 
 ## Risiko & catatan
 
-- Data catatan kesehatan (SQLite) belum terikat akun: bila dua akun bergantian memakai satu perangkat,
-  catatan kesehatan masih terlihat oleh keduanya. Prioritas pertama Sprint 2 (sinkronisasi per akun).
+- ~~Data catatan kesehatan belum terikat akun~~ → **diselesaikan di Sprint 2** (isolasi per akun
+  untuk semua 40 database + sinkronisasi 6 catatan kesehatan).
 - Foto profil masih disimpan lokal; upload ke bucket `avatars` di Sprint 2.
 
 ## Definition of Done
@@ -94,4 +104,7 @@ on conflict do nothing;
 Mengikuti [ARCHITECTURE.md §8](../ARCHITECTURE.md#8-definition-of-done-setiap-story), ditambah:
 - [x] Setiap tabel baru lolos Supabase security advisor
 - [x] Tes RLS integrasi lulus di project Supabase
-- [ ] Alur auth dites end-to-end di perangkat Android (daftar → verifikasi → masuk → profil → keluar)
+- [ ] Uji end-to-end di perangkat Android:
+  1. daftar → verifikasi email → masuk → lengkapi profil → keluar
+  2. daftar dokter + unggah STR → superadmin menolak dengan catatan → dokter kirim ulang → disetujui → dasbor dokter muncul
+  3. beralih peran dokter ↔ pengguna

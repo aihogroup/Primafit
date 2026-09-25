@@ -1,3 +1,4 @@
+import 'package:primafit/core/database/local_db.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -48,7 +49,7 @@ class TekananDarahDatabaseHelper {
   TekananDarahDatabaseHelper._init();
 
   Future<Database> get database async {
-    if (_database != null) return _database!;
+    if (_database?.isOpen ?? false) return _database!;
     _database = await _initDB('tekanandarah.db');
     return _database!;
   }
@@ -57,7 +58,7 @@ class TekananDarahDatabaseHelper {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
 
-    return await openDatabase(
+    return await LocalDb.open(
       path,
       version: 1,
       onCreate: _createDB,

@@ -7,7 +7,10 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../core/config/env.dart';
+import '../core/database/local_db.dart';
 import '../core/logging/app_logger.dart';
+import '../features/health_record/data/sync/health_metric_spec.dart';
+import '../features/health_record/data/sync/sync_schema.dart';
 import 'app.dart';
 
 /// App start-up: initialise services in a defined order, install global
@@ -28,6 +31,10 @@ Future<void> bootstrap() async {
 
   if (Env.isSupabaseConfigured) {
     await Supabase.initialize(url: Env.supabaseUrl, publishableKey: Env.supabasePublishableKey);
+    // Health-record tables get sync columns/triggers whenever they are opened.
+    for (final spec in healthMetricSpecs) {
+      LocalDb.registerOpenHook(spec.fileName, (db) => SyncSchema.ensure(db, spec));
+    }
     AppLogger.info('Supabase initialised (${Env.appEnv})', tag: 'bootstrap');
   } else {
     AppLogger.info('Supabase not configured; running in offline mode', tag: 'bootstrap');

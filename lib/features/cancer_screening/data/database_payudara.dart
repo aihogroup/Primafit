@@ -1,3 +1,4 @@
+import 'package:primafit/core/database/local_db.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
@@ -97,7 +98,7 @@ class DatabaseHelperPayudara {
   }
 
   Future<Database> get database async {
-    if (_database != null) return _database!;
+    if (_database?.isOpen ?? false) return _database!;
     _database = await _initDB('kankerpayudara_diagnosa.db');
     return _database!;
   }
@@ -106,7 +107,7 @@ class DatabaseHelperPayudara {
     final dbPath = await getApplicationDocumentsDirectory();
     final path = join(dbPath.path, filePath);
 
-    return await openDatabase(
+    return await LocalDb.open(
       path,
       version: 1,
       onCreate: _createDB,

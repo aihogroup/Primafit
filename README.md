@@ -42,4 +42,5 @@ flutter test
 - [Roadmap sprint](docs/ROADMAP.md)
 - [Sprint 0: fondasi & refactor](docs/sprints/SPRINT-00.md)
 - [Sprint 1: identitas & RBAC](docs/sprints/SPRINT-01.md)
+- [Sprint 2: platform data & sinkronisasi](docs/sprints/SPRINT-02.md)
 - Skema database: [`supabase/migrations`](supabase/migrations)

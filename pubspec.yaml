@@ -55,6 +55,7 @@ dependencies:
   intl: ^0.20.2
   pdf: ^3.11.3
   string_similarity: ^2.1.1
+  uuid: ^4.6.0
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +64,7 @@ dev_dependencies:
   mocktail: ^1.0.5
   flutter_launcher_icons: ^0.14.3
   flutter_native_splash: ^2.4.5
+  sqflite_common_ffi: ^2.4.3
 
 flutter_native_splash:
   background_image: "assets/Splash/background.png"

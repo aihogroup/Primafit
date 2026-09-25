@@ -1,3 +1,4 @@
+import 'package:primafit/core/database/local_db.dart';
 import 'dart:async';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -9,7 +10,7 @@ class ArtikelDatabase {
   ArtikelDatabase._init();
 
   Future<Database> get database async {
-    if (_database != null) return _database!;
+    if (_database?.isOpen ?? false) return _database!;
     _database = await _initDB('artikel_database.db');
     return _database!;
   }
@@ -18,7 +19,7 @@ class ArtikelDatabase {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
 
-    return await openDatabase(
+    return await LocalDb.open(
       path,
       version: 1,
       onCreate: _createDB,

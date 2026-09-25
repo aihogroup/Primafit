@@ -1,3 +1,4 @@
+import 'package:primafit/core/database/local_db.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:primafit/features/reminder/presentation/jadwal/notification_service.dart';
@@ -83,7 +84,7 @@ class DatabaseAgenda {
   DatabaseAgenda._internal();
 
   Future<Database> get database async {
-    if (_database != null) return _database!;
+    if (_database?.isOpen ?? false) return _database!;
     _database = await _initDB();
     return _database!;
   }
@@ -93,7 +94,7 @@ class DatabaseAgenda {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, 'agenda.db');
 
-    return await openDatabase(
+    return await LocalDb.open(
       path,
       version: 2, // Versi ditingkatkan karena struktur tabel berubah
       onCreate: _createDB,

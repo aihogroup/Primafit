@@ -1,3 +1,4 @@
+import 'package:primafit/core/database/local_db.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -79,7 +80,7 @@ class SuhuDatabaseHelper {
   SuhuDatabaseHelper._init();
 
   Future<Database> get database async {
-    if (_database != null) return _database!;
+    if (_database?.isOpen ?? false) return _database!;
     _database = await _initDB('suhu_tubuh.db');
     return _database!;
   }
@@ -88,7 +89,7 @@ class SuhuDatabaseHelper {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
 
-    return await openDatabase(
+    return await LocalDb.open(
       path,
       version: 1,
       onCreate: _createDB,

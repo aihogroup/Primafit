@@ -5,6 +5,7 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_spacing.dart';
 import '../providers/auth_controller.dart';
 import '../providers/auth_providers.dart';
+import 'role_switcher.dart';
 
 /// Signed-in account info + sign-out (with confirmation, since it ends the
 /// session and clears personal data cached on the device).
@@ -27,6 +28,7 @@ class AccountSection extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          const RoleSwitcher(),
           if (email != null) ...[
             Text('Akun', style: textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600)),
             const SizedBox(height: AppSpacing.xs),

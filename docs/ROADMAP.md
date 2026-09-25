@@ -7,8 +7,8 @@ terhadap standar itu dan penutupan celah yang tersisa, bukan satu-satunya tempat
 | Sprint | Tema | Peran | Output utama |
 |---|---|---|---|
 | **0** ✅ | Fondasi & refactor | — | Toolchain, arsitektur feature-first, Riverpod, router + role guard, bug fix, test, CI, APK |
-| **1** 🔄 | Identitas & RBAC | Semua | Supabase Auth, 5 peran, registrasi & verifikasi profesional, audit log |
-| 2 | Platform data & sinkronisasi | User | Data kesehatan ke Supabase (offline-first), Storage privat untuk dokumen/BPJS/vaksin, konsolidasi 40 file SQLite |
+| **1** ✅ | Identitas & RBAC | Semua | Supabase Auth, 5 peran, registrasi & verifikasi profesional, audit log (kode selesai; menunggu uji perangkat) |
+| **2** 🔄 | Platform data & sinkronisasi | User | ✅ Isolasi data per akun (40 database) + sinkronisasi 6 catatan kesehatan · 🔜 modul lain, Storage file, modul generik |
 | 3 | Knowledge base & mesin rekomendasi | Superadmin, User | Aturan CSV → tabel `kb_*` berversi, CMS Superadmin, inferensi via Edge Function |
 | 4 | Telemedisin | Dokter, User | Jadwal & ketersediaan dokter, booking, chat realtime, catatan konsultasi, notifikasi FCM |
 | 5 | Layanan instansi | Instansi, User | Dashboard instansi, katalog layanan (MCU, vaksin, donor darah PMR), antrean, fasilitas terdekat dari data sendiri |
@@ -20,13 +20,17 @@ terhadap standar itu dan penutupan celah yang tersisa, bukan satu-satunya tempat
 
 Lihat [sprints/SPRINT-00.md](sprints/SPRINT-00.md).
 
-## Sprint 1: Identitas & RBAC 🔄
+## Sprint 1: Identitas & RBAC ✅ (kode selesai 24 Sep 2026; menunggu uji perangkat)
 
 Lihat [sprints/SPRINT-01.md](sprints/SPRINT-01.md).
 
-## Sprint 2: Platform data & sinkronisasi
+## Sprint 2: Platform data & sinkronisasi 🔄
 
-- Satu database lokal (menggantikan 40 file `.db`) dengan migrasi berversi, plus migrasi data lama.
+Lihat [sprints/SPRINT-02.md](sprints/SPRINT-02.md). Selesai: isolasi per akun + sync 6 catatan
+kesehatan. Sisa (Sprint 2b):
+
+- ~~Satu database lokal~~ → diganti pendekatan per akun: 40 file tetap, tetapi terisolasi per akun
+  lewat `LocalDb` (lebih aman tanpa migrasi skema besar).
 - Modul `health_record` generik: 6 metrik (kolesterol, gula darah, asam urat, tensi, BMI, suhu) memakai
   1 set layar + konfigurasi, bukan 24 file duplikat (±20 ribu baris).
 - Tabel `health_records`, `medications`, `agendas`, `documents` ber-RLS (pemilik saja + dokter yang

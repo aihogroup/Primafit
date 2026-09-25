@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:primafit/app/router/app_routes.dart';
 import 'package:primafit/features/auth/domain/entities/app_session.dart';
+import 'package:primafit/features/auth/domain/entities/user_role.dart';
 import 'package:primafit/features/onboarding/domain/start_route.dart';
 import 'package:primafit/features/profile/domain/entities/user_profile.dart';
 
@@ -37,6 +38,24 @@ void main() {
 
     test('signed in but profile unavailable -> profile setup, never sign in', () {
       expect(route(session: signedIn, introSeen: false), AppRoutes.profileSetup);
+    });
+
+    test('complete profile lands on the active role dashboard', () {
+      expect(
+        resolveStartRoute(
+          requiresAccount: true,
+          session: AppSession(userId: 'd', roles: const {UserRole.doctor}),
+          profile: _complete,
+          introSeen: true,
+          activeRole: UserRole.doctor,
+        ),
+        AppRoutes.doctorDashboard,
+      );
+    });
+
+    test('every role has a landing route', () {
+      expect({for (final r in UserRole.values) AppRoutes.homeFor(r)}, hasLength(5));
+      expect(AppRoutes.homeFor(UserRole.superadmin), AppRoutes.adminDashboard);
     });
 
     test('intro leads to sign in', () {

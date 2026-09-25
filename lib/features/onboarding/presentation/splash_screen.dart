@@ -5,6 +5,8 @@ import 'package:primafit/core/logging/app_logger.dart';
 import 'package:primafit/features/onboarding/data/onboarding_preferences.dart';
 import 'package:primafit/features/onboarding/domain/start_route.dart';
 import 'package:primafit/features/auth/domain/entities/app_session.dart';
+import 'package:primafit/features/auth/domain/entities/user_role.dart';
+import 'package:primafit/features/auth/presentation/providers/active_role_provider.dart';
 import 'package:primafit/features/auth/presentation/providers/auth_providers.dart';
 import 'package:primafit/features/profile/domain/entities/user_profile.dart';
 import 'package:primafit/features/profile/presentation/providers/profile_providers.dart';
@@ -56,9 +58,13 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
     final introSeen = await ref.read(onboardingPreferencesProvider).isIntroSeen();
     AppSession? session;
     UserProfile? profile;
+    var activeRole = UserRole.user;
     try {
       session = await ref.read(sessionProvider.future);
-      if (session != null) profile = await ref.read(profileControllerProvider.future);
+      if (session != null) {
+        profile = await ref.read(profileControllerProvider.future);
+        activeRole = await ref.read(activeRoleProvider.future);
+      }
     } catch (e) {
       // Profile unavailable (e.g. offline on first launch): a signed-in user
       // lands on the profile form, which retries; never on the sign-in page.
@@ -69,6 +75,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
       session: session,
       profile: profile,
       introSeen: introSeen,
+      activeRole: activeRole,
     );
   }
 

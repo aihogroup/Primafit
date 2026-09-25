@@ -59,6 +59,13 @@ import '../../features/auth/presentation/pages/forgot_password_page.dart';
 import '../../features/auth/presentation/pages/sign_in_page.dart';
 import '../../features/auth/presentation/pages/sign_up_page.dart';
 import '../../features/auth/presentation/pages/update_password_page.dart';
+import '../../features/dashboard/presentation/role_dashboard_page.dart';
+import '../../features/professional/presentation/pages/doctor_registration_page.dart';
+import '../../features/professional/presentation/pages/organization_registration_page.dart';
+import '../../features/professional/presentation/pages/professional_hub_page.dart';
+import '../../features/verification/domain/entities/verification_request.dart';
+import '../../features/verification/presentation/pages/verification_detail_page.dart';
+import '../../features/verification/presentation/pages/verification_queue_page.dart';
 import '../../features/auth/presentation/widgets/role_guard.dart';
 import 'app_routes.dart';
 
@@ -81,6 +88,51 @@ abstract final class AppRouter {
     AppRoutes.signUp: (builder: (_) => const SignUpPage(), roles: null),
     AppRoutes.forgotPassword: (builder: (_) => const ForgotPasswordPage(), roles: null),
     AppRoutes.updatePassword: (builder: (_) => const UpdatePasswordPage(), roles: _anyUser),
+
+    // Role dashboards
+    AppRoutes.doctorDashboard: (
+      builder: (_) => const RoleDashboardPage(role: UserRole.doctor),
+      roles: {UserRole.doctor},
+    ),
+    AppRoutes.institutionDashboard: (
+      builder: (_) => const RoleDashboardPage(role: UserRole.institution),
+      roles: {UserRole.institution},
+    ),
+    AppRoutes.partnerDashboard: (
+      builder: (_) => const RoleDashboardPage(role: UserRole.partner),
+      roles: {UserRole.partner},
+    ),
+    AppRoutes.adminDashboard: (
+      builder: (_) => const RoleDashboardPage(role: UserRole.superadmin),
+      roles: {UserRole.superadmin},
+    ),
+
+    // Professional registration
+    AppRoutes.professionalHub: (builder: (_) => const ProfessionalHubPage(), roles: _anyUser),
+    AppRoutes.doctorRegistration: (builder: (_) => const DoctorRegistrationPage(), roles: _anyUser),
+    AppRoutes.organizationRegistration: (
+      builder: (context) {
+        final args = ModalRoute.of(context)!.settings.arguments as OrganizationRouteArgs;
+        return OrganizationRegistrationPage(kind: args.kind, existing: args.existing);
+      },
+      roles: _anyUser,
+    ),
+
+    // Superadmin verification
+    AppRoutes.verificationQueue: (
+      builder: (context) => VerificationQueuePage(
+        initialSubject:
+            (ModalRoute.of(context)!.settings.arguments as VerificationSubject?) ??
+            VerificationSubject.doctor,
+      ),
+      roles: {UserRole.superadmin},
+    ),
+    AppRoutes.verificationDetail: (
+      builder: (context) => VerificationDetailPage(
+        request: ModalRoute.of(context)!.settings.arguments! as VerificationRequest,
+      ),
+      roles: {UserRole.superadmin},
+    ),
 
     // Shell
     AppRoutes.home: (builder: (_) => const HomePage(), roles: _anyUser),

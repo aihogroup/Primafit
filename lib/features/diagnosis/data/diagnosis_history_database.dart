@@ -1,3 +1,4 @@
+import 'package:primafit/core/database/local_db.dart';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:path/path.dart';
@@ -12,7 +13,7 @@ class DiagnosisHistoryDatabase {
   DiagnosisHistoryDatabase._init();
 
   Future<Database> get database async {
-    if (_database != null) return _database!;
+    if (_database?.isOpen ?? false) return _database!;
     _database = await _initDB('diagnosis_history.db');
     return _database!;
   }
@@ -21,7 +22,7 @@ class DiagnosisHistoryDatabase {
     final dbPath = await getApplicationDocumentsDirectory();
     final path = join(dbPath.path, filePath);
 
-    return await openDatabase(
+    return await LocalDb.open(
       path,
       version: 1,
       onCreate: _createDB,

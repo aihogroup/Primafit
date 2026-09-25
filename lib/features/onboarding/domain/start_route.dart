@@ -1,5 +1,6 @@
 import '../../../app/router/app_routes.dart';
 import '../../auth/domain/entities/app_session.dart';
+import '../../auth/domain/entities/user_role.dart';
 import '../../profile/domain/entities/user_profile.dart';
 
 /// Decides where the app goes after the splash screen.
@@ -12,11 +13,12 @@ String resolveStartRoute({
   required AppSession? session,
   required UserProfile? profile,
   required bool introSeen,
+  UserRole activeRole = UserRole.user,
 }) {
   if (requiresAccount && session == null) {
     return introSeen ? AppRoutes.signIn : AppRoutes.intro;
   }
-  if (profile?.isComplete ?? false) return AppRoutes.home;
+  if (profile?.isComplete ?? false) return AppRoutes.homeFor(activeRole);
   if (!requiresAccount && !introSeen) return AppRoutes.intro;
   return AppRoutes.profileSetup;
 }

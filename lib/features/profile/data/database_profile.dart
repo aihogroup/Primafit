@@ -1,3 +1,4 @@
+import 'package:primafit/core/database/local_db.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:intl/intl.dart';
@@ -10,14 +11,14 @@ class ProfileDatabaseHelper {
   ProfileDatabaseHelper._internal();
 
   Future<Database> get database async {
-    if (_database != null) return _database!;
+    if (_database?.isOpen ?? false) return _database!;
     _database = await _initDatabase();
     return _database!;
   }
 
   Future<Database> _initDatabase() async {
     final String path = join(await getDatabasesPath(), 'health_data.db');
-    return await openDatabase(path, version: 2, onCreate: _onCreate, onUpgrade: _onUpgrade);
+    return await LocalDb.open(path, version: 2, onCreate: _onCreate, onUpgrade: _onUpgrade);
   }
 
   void _onCreate(Database db, int version) async {
